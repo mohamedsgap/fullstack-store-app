@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 /*
@@ -29,6 +30,15 @@ app.use((req, res, next)=>{
     next();
 });
 
+
+app.use(bodyParser.json());
+
+app.post('/api/stuff', (req, res, next) => {
+    console.log(req.body);
+    res.status(201).json({
+        messgae: 'thing created successfully'
+    });
+});
 
 app.use('/api/stuff',(req, res, next) => {
     const stuff = [
