@@ -66,6 +66,20 @@ app.post('/api/stuff', (req, res, next) => {
     });
 });
 
+app.get('/api/stuff/:id', (req, res, next) => {
+    Thing.findOne({
+        _id: req.params.id
+
+    }).then((thing)=>{
+        res.status(200).json(thing);
+    }).catch((error)=>{
+        res.status(400).json({
+            error: error
+        });
+    });
+});
+
+
 app.use('/api/stuff',(req, res, next) => {
     Thing.find().then((things)=>{
         res.status(200).json(things);
