@@ -1,5 +1,9 @@
+// MONGODB PW: un0xlqfbTxUVH7In
+// MONGODB CONNECTION: mongodb+srv://mohamed:<password>@cluster0-fytzm.mongodb.net/test?retryWrites=true&w=majority
+
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 /*
@@ -22,6 +26,14 @@ app.use((req, res, next)=>{
     console.log("the rquest sent successfully");
 });
 */
+
+
+mongoose.connect('mongodb+srv://mohamed:un0xlqfbTxUVH7In@cluster0-fytzm.mongodb.net/test?retryWrites=true&w=majority').then(() => {
+    console.log("'Successfully connected to MongoDB Atlas!'");
+}).catch((error) => {
+    console.log('Unable to connect to MongoDB Atlas!');
+    console.error(error);
+}); 
 
 app.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
