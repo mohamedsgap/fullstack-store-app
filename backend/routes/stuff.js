@@ -9,7 +9,7 @@ router.post('/', auth, multer, stuffCtrl.createThing);
 
 router.get('/:id', auth, stuffCtrl.getSingleThing);
 
-router.put('/:id',  auth, stuffCtrl.modifyThing);
+router.put('/:id', auth, multer, stuffCtrl.modifyThing);
 
 router.delete('/:id', auth, stuffCtrl.deleteThing);
 
