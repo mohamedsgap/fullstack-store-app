@@ -4,7 +4,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const stuffRouters = require('./routes/stuff');
+const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 const path = require('path');
 
